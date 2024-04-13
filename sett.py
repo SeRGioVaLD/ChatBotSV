@@ -4,10 +4,14 @@ import os
 load_dotenv()
 
 token = os.getenv('CHATBOT_TOKEN')
+print('TOKEN: ',token)
 
 whatsapp_token = os.getenv('META_WHATSAPP_TOKEN')
+print('W_TOKEN: ',whatsapp_token)
 
 whatsapp_url = os.getenv('META_WHATSAPP_URL')
+print('W_URL: ',whatsapp_url)
+
 
 stickers = {
     "poyo_feliz": 984778742532668,
