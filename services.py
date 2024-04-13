@@ -214,6 +214,7 @@ def markRead_Message(messageId):
 def administrar_chatbot(text,number, messageId, name):
     text = text.lower() #mensaje que envio el usuario
     list = []
+    i=0
     print("mensaje del usuario: ",text)
 
     markRead = markRead_Message(messageId)
@@ -287,7 +288,9 @@ def administrar_chatbot(text,number, messageId, name):
         list.append(data)
 
     for item in list:
+        print('I: ',i)
         enviar_Mensaje_whatsapp(item)
+        i=i+1
 
 #al parecer para mexico, whatsapp agrega 521 como prefijo en lugar de 52,
 # este codigo soluciona ese inconveniente.

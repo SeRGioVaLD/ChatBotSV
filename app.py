@@ -10,11 +10,17 @@ def  bienvenido():
 
 @app.route('/webhook', methods=['GET'])
 def verificar_token():
+    print("VERIFICACION DE TOKEN")
     try:
         token = request.args.get('hub.verify_token')
+        
+        print("TOKEN___:", token)
         challenge = request.args.get('hub.challenge')
+        
+        print("challenge: ",challenge)
 
         if token == sett.token and challenge != None:
+            print("TOKEN VERIFICADO")
             return challenge
         else:
             return 'token incorrecto', 403
@@ -38,8 +44,8 @@ def recibir_mensajes():
 
         services.administrar_chatbot(text, number,messageId,name)
         return 'enviado'
-
     except Exception as e:
+        print("Mensaje no enviado")
         return 'no enviado ' + str(e)
 
 if __name__ == '__main__':
