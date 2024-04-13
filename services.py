@@ -228,7 +228,7 @@ def administrar_chatbot(text,number, messageId, name):
     list.append(markRead)
     time.sleep(2)
 
-    if  ("hola" in text or "volver" in text) and primera:
+    if  ("hola" in text and primera) or  "volver" in text:
         primera = False
         body = "¡Hola! 👋 Bienvenido a El Rapido. ¿Cómo podemos ayudarte hoy?"
         footer = "Equipo Rapiditos"
