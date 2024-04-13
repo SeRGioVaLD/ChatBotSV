@@ -232,7 +232,7 @@ def administrar_chatbot(text,number, messageId, name):
         primera = False
         body = "¡Hola! 👋 Bienvenido a El Rapido. ¿Cómo podemos ayudarte hoy?"
         footer = "Equipo Rapiditos"
-        options = ["✅ servicios", "📅 precios", "\U0001F468‍✈️ choferes", "❤️ nosotros", "❓ pregunta algo corto"]
+        options = ["servicios", "precios", "choferes", "nosotros", "pregunta algo corto"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -257,7 +257,7 @@ def administrar_chatbot(text,number, messageId, name):
         
         body =  respuesta
         footer = "Equipo Rapiditos"
-        options = ["↩️ volver"]
+        options = ["volver"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -270,7 +270,7 @@ def administrar_chatbot(text,number, messageId, name):
         
         body =  respuesta
         footer = "Equipo Rapiditos"
-        options = ["↩️ volver"]
+        options = ["volver"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -283,7 +283,7 @@ def administrar_chatbot(text,number, messageId, name):
         
         body =  respuesta
         footer = "Equipo Rapiditos"
-        options = ["↩️ volver"]
+        options = ["volver"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -297,7 +297,7 @@ def administrar_chatbot(text,number, messageId, name):
         respuesta = enviarChat(pregunta)
         body =  respuesta
         footer = "Equipo Rapiditos"
-        options = ["↩️ volver"]
+        options = ["volver"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -311,7 +311,7 @@ def administrar_chatbot(text,number, messageId, name):
         respuesta = enviarChat(pregunta)
         body =  respuesta
         footer = "Equipo Rapiditos"
-        options = ["↩️ volver"]
+        options = ["volver"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -325,7 +325,7 @@ def administrar_chatbot(text,number, messageId, name):
         respuesta = enviarChat(pregunta)
         body =  respuesta
         footer = "Equipo Rapiditos"
-        options = ["↩️ volver"]
+        options = ["volver"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -343,7 +343,7 @@ def administrar_chatbot(text,number, messageId, name):
         respuesta = enviarChat(pregunta)
         body =  respuesta
         footer = "Equipo Rapiditos"
-        options = ["↩️ volver"]
+        options = ["volver"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
