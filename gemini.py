@@ -63,11 +63,3 @@ def enviarChat(mensaje):
     })
 
     return modelo_respuesta
-
-chat = enviarChat("quienes son los choferes?")
-
-print(chat)
-
-chat = enviarChat("cuales son los precios?")
-
-print(chat)
