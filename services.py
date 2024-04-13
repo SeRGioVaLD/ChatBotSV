@@ -33,6 +33,7 @@ def enviar_Mensaje_whatsapp(data):
         response = requests.post(whatsapp_url, 
                                  headers=headers, 
                                  data=data)
+        print("RESPONSE: ", response)
         
         if response.status_code == 200:
             return 'mensaje enviado', 200
