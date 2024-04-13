@@ -30,6 +30,7 @@ def recibir_mensajes():
         value = changes['value']
         message = value['messages'][0]
         number = message['from'] # services.replace_start(message['from'])
+        print("NUMERO QUE HABLA: ",number)
         messageId = message['id']
         contacts = value['contacts'][0]
         name = contacts['profile']['name']
