@@ -228,11 +228,11 @@ def administrar_chatbot(text,number, messageId, name):
     list.append(markRead)
     time.sleep(2)
 
-    if  primera:
+    if  "hola" in text:
         primera = False
         body = "¡Hola! 👋 Bienvenido a El Rapido. ¿Cómo podemos ayudarte hoy?"
         footer = "Equipo Rapiditos"
-        options = ["✅ servicios", "📅 precios","👨‍✈️ choferes", "❤️ nosotros", "❓ pregunta algo corto"]
+        options = ["✅ servicios", "📅 precios","👨‍✈️ choferes", "❤️ nosotros"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
