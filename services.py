@@ -216,11 +216,12 @@ def markRead_Message(messageId):
     )
     return data
 
+primera = True
 def administrar_chatbot(text,number, messageId, name):
+    global primera
     text = text.lower() #mensaje que envio el usuario
     list = []
     i=0
-    primera = True
     print("mensaje del usuario: ",text)
 
     markRead = markRead_Message(messageId)
@@ -228,6 +229,7 @@ def administrar_chatbot(text,number, messageId, name):
     time.sleep(2)
 
     if  primera:
+        primera = False
         body = "¡Hola! 👋 Bienvenido a El Rapido. ¿Cómo podemos ayudarte hoy?"
         footer = "Equipo Rapiditos"
         options = ["✅ servicios", "📅 precios","👨‍✈️ choferes", "❤️ nosotros", "❓ pregunta algo corto"]
@@ -236,7 +238,6 @@ def administrar_chatbot(text,number, messageId, name):
         replyReaction = replyReaction_Message(number, messageId, "🫡")
         list.append(replyReaction)
         list.append(replyButtonData)
-        primera = False
     # --------------------------SERVICIOS----------------------------------    
     elif "servicios" in text:
         body = "Tenemos varias áreas de consulta para elegir. ¿Cuál de estos servicios te gustaría explorar?"
