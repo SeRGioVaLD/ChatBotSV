@@ -293,6 +293,7 @@ def administrar_chatbot(text,number, messageId, name):
 # este codigo soluciona ese inconveniente.
 def replace_start(s):
     number = s[3:]
+    print(number)
     if s.startswith("511"):
         return "51" + number
     elif s.startswith("519"):
