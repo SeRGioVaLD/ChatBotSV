@@ -232,7 +232,7 @@ def administrar_chatbot(text,number, messageId, name):
         primera = False
         body = "¡Hola! 👋 Bienvenido a El Rapido. ¿Cómo podemos ayudarte hoy?"
         footer = "Equipo Rapiditos"
-        options = ["✅ servicios", "📅 precios","👨‍✈️ choferes", "❤️ nosotros"]
+        options = ["✅ servicios", "📅 precios"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
