@@ -230,14 +230,16 @@ def administrar_chatbot(text,number, messageId, name):
 
     if  ("hola" in text and primera) or  "volver" in text:
         primera = False
+        
         body = "¡Hola! 👋 Bienvenido a El Rapido. ¿Cómo podemos ayudarte hoy?"
         footer = "Equipo Rapiditos"
-        options = ["servicios", "precios", "choferes", "nosotros"]
+        options = ["servicios", "precios", "choferes", "nosotros", "pregunta algo corto"]
 
-        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
-        replyReaction = replyReaction_Message(number, messageId, "🫡")
-        list.append(replyReaction)
-        list.append(replyButtonData)
+        listReplyData = listReply_Message(number, options, body, footer, "sed2",messageId)
+        sticker = sticker_Message(number, get_media_id("perro_traje", "sticker"))
+
+        list.append(listReplyData)
+        list.append(sticker)
     # --------------------------SERVICIOS----------------------------------    
     elif "servicios" in text:
         body = "Tenemos varias áreas de consulta para elegir. ¿Cuál de estos servicios te gustaría explorar?"
