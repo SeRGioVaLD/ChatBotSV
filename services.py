@@ -260,7 +260,9 @@ def administrar_chatbot(text,number, messageId, name):
         body =  respuesta
         footer = "Equipo Rapiditos"
         options = ["volver"]
-
+        
+        primera = True
+        
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
         list.append(replyReaction)
@@ -273,6 +275,8 @@ def administrar_chatbot(text,number, messageId, name):
         body =  respuesta
         footer = "Equipo Rapiditos"
         options = ["volver"]
+        
+        primera = True
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -286,6 +290,8 @@ def administrar_chatbot(text,number, messageId, name):
         body =  respuesta
         footer = "Equipo Rapiditos"
         options = ["volver"]
+        
+        primera = True
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -300,6 +306,8 @@ def administrar_chatbot(text,number, messageId, name):
         body =  respuesta
         footer = "Equipo Rapiditos"
         options = ["volver"]
+        
+        primera = True
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -314,6 +322,8 @@ def administrar_chatbot(text,number, messageId, name):
         body =  respuesta
         footer = "Equipo Rapiditos"
         options = ["volver"]
+        
+        primera = True
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -328,6 +338,8 @@ def administrar_chatbot(text,number, messageId, name):
         body =  respuesta
         footer = "Equipo Rapiditos"
         options = ["volver"]
+        
+        primera = True
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -346,6 +358,8 @@ def administrar_chatbot(text,number, messageId, name):
         body =  respuesta
         footer = "Equipo Rapiditos"
         options = ["volver"]
+        
+        primera = True
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
