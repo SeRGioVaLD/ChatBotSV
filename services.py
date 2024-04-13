@@ -2,6 +2,7 @@ import requests
 import sett
 import json
 import time
+from gemini import enviarChat
 
 def obtener_Mensaje_whatsapp(message):
     if 'type' not in message :
@@ -220,77 +221,134 @@ def administrar_chatbot(text,number, messageId, name):
     text = text.lower() #mensaje que envio el usuario
     list = []
     i=0
+    primera = True
     print("mensaje del usuario: ",text)
 
     markRead = markRead_Message(messageId)
     list.append(markRead)
     time.sleep(2)
 
-    if "hola" in text:
-        body = "¡Hola! 👋 Bienvenido a Bigdateros. ¿Cómo podemos ayudarte hoy?"
-        footer = "Equipo Bigdateros"
-        options = ["✅ servicios", "📅 agendar cita"]
+    if  primera:
+        body = "¡Hola! 👋 Bienvenido a El Rapido. ¿Cómo podemos ayudarte hoy?"
+        footer = "Equipo Rapiditos"
+        options = ["✅ servicios", "📅 precios","👨‍✈️ choferes", "❤️ nosotros", "❓ pregunta algo corto"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
         list.append(replyReaction)
         list.append(replyButtonData)
+        primera = False
+    # --------------------------SERVICIOS----------------------------------    
     elif "servicios" in text:
         body = "Tenemos varias áreas de consulta para elegir. ¿Cuál de estos servicios te gustaría explorar?"
-        footer = "Equipo Bigdateros"
-        options = ["Analítica Avanzada", "Migración Cloud", "Inteligencia de Negocio"]
+        footer = "Equipo Rapiditos"
+        options = ["Rapi Tour", "Ejecutivo", "Económico"]
 
         listReplyData = listReply_Message(number, options, body, footer, "sed2",messageId)
         sticker = sticker_Message(number, get_media_id("perro_traje", "sticker"))
 
         list.append(listReplyData)
         list.append(sticker)
-    elif "inteligencia de negocio" in text:
-        body = "Buenísima elección. ¿Te gustaría que te enviara un documento PDF con una introducción a nuestros métodos de Inteligencia de Negocio?"
-        footer = "Equipo Bigdateros"
-        options = ["✅ Sí, envía el PDF.", "⛔ No, gracias"]
+    
+    elif "Rapi tour" in text:
+        pregunta = "Cual es el servicio Rapi Tour?"
+        
+        respuesta = enviarChat(pregunta)
+        
+        body =  respuesta
+        footer = "Equipo Rapiditos"
+        options = ["↩️ volver"]
 
-        replyButtonData = buttonReply_Message(number, options, body, footer, "sed3",messageId)
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
+        replyReaction = replyReaction_Message(number, messageId, "🫡")
+        list.append(replyReaction)
         list.append(replyButtonData)
-    elif "sí, envía el pdf" in text:
-        sticker = sticker_Message(number, get_media_id("pelfet", "sticker"))
-        textMessage = text_Message(number,"Genial, por favor espera un momento.")
+    elif "Ejecutivo" in text:
+        pregunta = "Cual es el servicio Ejecutivo?"
+        
+        respuesta = enviarChat(pregunta)
+        
+        body =  respuesta
+        footer = "Equipo Rapiditos"
+        options = ["↩️ volver"]
 
-        enviar_Mensaje_whatsapp(sticker)
-        enviar_Mensaje_whatsapp(textMessage)
-        time.sleep(3)
-
-        document = document_Message(number, sett.document_url, "Listo 👍🏻", "Inteligencia de Negocio.pdf")
-        enviar_Mensaje_whatsapp(document)
-        time.sleep(3)
-
-        body = "¿Te gustaría programar una reunión con uno de nuestros especialistas para discutir estos servicios más a fondo?"
-        footer = "Equipo Bigdateros"
-        options = ["✅ Sí, agenda reunión", "No, gracias." ]
-
-        replyButtonData = buttonReply_Message(number, options, body, footer, "sed4",messageId)
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
+        replyReaction = replyReaction_Message(number, messageId, "🫡")
+        list.append(replyReaction)
         list.append(replyButtonData)
-    elif "sí, agenda reunión" in text :
-        body = "Estupendo. Por favor, selecciona una fecha y hora para la reunión:"
-        footer = "Equipo Bigdateros"
-        options = ["📅 10: mañana 10:00 AM", "📅 7 de junio, 2:00 PM", "📅 8 de junio, 4:00 PM"]
+    elif "Económico" in text:
+        pregunta = "Cual es el servicio Económico?"
+        
+        respuesta = enviarChat(pregunta)
+        
+        body =  respuesta
+        footer = "Equipo Rapiditos"
+        options = ["↩️ volver"]
 
-        listReply = listReply_Message(number, options, body, footer, "sed5",messageId)
-        list.append(listReply)
-    elif "7 de junio, 2:00 pm" in text:
-        body = "Excelente, has seleccionado la reunión para el 7 de junio a las 2:00 PM. Te enviaré un recordatorio un día antes. ¿Necesitas ayuda con algo más hoy?"
-        footer = "Equipo Bigdateros"
-        options = ["✅ Sí, por favor", "❌ No, gracias."]
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
+        replyReaction = replyReaction_Message(number, messageId, "🫡")
+        list.append(replyReaction)
+        list.append(replyButtonData)
+    # --------------------------------------------------------------------- 
+    # --------------------------PRECIOS__----------------------------------    
+    elif "precios" in text:
+        pregunta = "Cuales son los Precios por Pasajes?"
+        
+        respuesta = enviarChat(pregunta)
+        body =  respuesta
+        footer = "Equipo Rapiditos"
+        options = ["↩️ volver"]
 
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
+        replyReaction = replyReaction_Message(number, messageId, "🫡")
+        list.append(replyReaction)
+        list.append(replyButtonData)
+    # ---------------------------------------------------------------------
+    # --------------------------CHOFERES-----------------------------------    
+    elif "choferes" in text:
+        pregunta = "Quienes son los Choferes?"
+        
+        respuesta = enviarChat(pregunta)
+        body =  respuesta
+        footer = "Equipo Rapiditos"
+        options = ["↩️ volver"]
 
-        buttonReply = buttonReply_Message(number, options, body, footer, "sed6",messageId)
-        list.append(buttonReply)
-    elif "no, gracias." in text:
-        textMessage = text_Message(number,"Perfecto! No dudes en contactarnos si tienes más preguntas. Recuerda que también ofrecemos material gratuito para la comunidad. ¡Hasta luego! 😊")
-        list.append(textMessage)
-    else :
-        data = text_Message(number,"Lo siento, no entendí lo que dijiste. ¿Quieres que te ayude con alguna de estas opciones?")
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
+        replyReaction = replyReaction_Message(number, messageId, "🫡")
+        list.append(replyReaction)
+        list.append(replyButtonData)
+    # ---------------------------------------------------------------------
+    # --------------------------CHOFERES-----------------------------------    
+    elif "nosotros" in text:
+        pregunta = "Puedes dar un contexto corto de quienes son la empresa El Rapido y a que se dedica?"
+        
+        respuesta = enviarChat(pregunta)
+        body =  respuesta
+        footer = "Equipo Rapiditos"
+        options = ["↩️ volver"]
+
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
+        replyReaction = replyReaction_Message(number, messageId, "🫡")
+        list.append(replyReaction)
+        list.append(replyButtonData)
+    # ---------------------------------------------------------------------
+    # --------------------------CHOFERES-----------------------------------    
+    elif "pregunta algo corto" in text:
+        data = text_Message(number,"Dinos, ¿qué es lo que quieres?")
         list.append(data)
+    # ---------------------------------------------------------------------
+    else :
+        pregunta = str(text)
+        
+        respuesta = enviarChat(pregunta)
+        body =  respuesta
+        footer = "Equipo Rapiditos"
+        options = ["↩️ volver"]
+
+        replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
+        replyReaction = replyReaction_Message(number, messageId, "🫡")
+        list.append(replyReaction)
+        list.append(replyButtonData)
 
     for item in list:
         print('I: ',i)
